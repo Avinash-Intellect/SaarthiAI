@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Practice - Saarthi AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <div class="max-w-4xl mx-auto py-10 px-4">
+    <h1 class="text-3xl font-bold text-center mb-6">🧠 Choose a Subject to Practice</h1>
+    <div id="subject-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+
+ <script>
+  fetch("/api/quizzes")
+    .then(res => res.json())
+    .then(data => {
+      console.log("Fetched quizzes:", data); // ✅ Add this line
+
+      const subjects = [...new Set(data.map(q => q.subject))];
+      console.log("Extracted subjects:", subjects); // ✅ Add this too
+
+      const container = document.getElementById("subject-list");
+
+      if (!subjects || subjects.length === 0) {
+        container.innerHTML = "<p class='text-gray-600'>No quizzes available.</p>";
+        return;
+      }
+
+      subjects.forEach(subject => {
+        const btn = document.createElement("button");
+        btn.className = "bg-blue-600 text-white px-6 py-4 rounded-lg shadow hover:bg-blue-700 transition text-lg";
+        btn.textContent = subject;
+        btn.onclick = () => {
+          sessionStorage.setItem("selectedSubject", subject);
+          window.location.href = "quiz.html";
+        };
+        container.appendChild(btn);
+      });
+    })
+    .catch(err => {
+      console.error("Failed to load subjects:", err);
+      document.getElementById("subject-list").innerHTML = "<p class='text-red-600'>Error loading subjects.</p>";
+    });
+</script>
+
+</body>
+</html>

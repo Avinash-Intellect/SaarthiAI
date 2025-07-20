@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Saarthi AI - Choose Your Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer src="script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <h1 class="text-3xl font-bold mb-8 text-center">Your Learning Path</h1>
+
+    <div id="subject-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Subject cards inserted by script.js -->
+    </div>
+  </div>
+  <div class="fixed top-4 right-4 z-50">
+  <a href="practice.html">
+    <button class="bg-blue-600 text-white px-5 py-2 rounded-md shadow hover:bg-blue-700 transition">
+      🧠 Practice
+    </button>
+  </a>
+</div>
+
+<button onclick="toggleCareerMentor()" class="fixed bottom-4 right-30 bg-blue-600 text-white px-8 py-3 rounded-full shadow-md hover:bg-blue-700 z-50 ">
+  🎯 Ask Career Mentor
+</button>
+
+<!-- Mentor Popup -->
+<div id="career-mentor-popup"
+     class="fixed bottom-24 right-4 w-80 max-h-[80vh] bg-white border rounded shadow-lg p-4 z-50 hidden flex flex-col">
+  <h2 class="font-bold mb-2">🎯 Career Mentor</h2>
+
+  <textarea id="mentor-input"
+            class="w-full border rounded p-2 text-sm mb-2"
+            rows="3"
+            placeholder="Describe your learning or career goal..."></textarea>
+
+  <button id="mentor-submit"
+          class="bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700">
+    Ask Mentor
+  </button>
+
+  <!-- Make this scrollable if content overflows -->
+  <div id="mentor-response"
+       class="text-sm mt-3 text-gray-800 whitespace-pre-line overflow-y-auto"
+       style="max-height: 300px;">
+  </div>
+</div>
+
+  <!-- 🔵 Floating Chatbot Button -->
+<div id="chatbot-button" class="fixed bottom-6 right-6 flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 z-50">
+  <span class="text-sm font-medium">Ask Saarthi</span>
+  <span class="text-xl">🤖</span>
+</div>
+
+
+<!-- 💬 Chatbot Popup -->
+<div id="chatbot-popup" class="hidden fixed bottom-20 right-6 bg-white w-96 rounded-lg shadow-xl border z-50 flex flex-col overflow-hidden">
+  <div class="bg-blue-600 text-white px-4 py-2 font-semibold flex justify-between items-center">
+    <span>AI Assistant</span>
+    <button onclick="toggleChatbot()" class="text-white">&times;</button>
+  </div>
+  <div id="chat-window" class="h-80 overflow-y-auto p-3 text-sm bg-gray-50"></div>
+  <div class="flex border-t">
+    <input id="user-input" type="text" placeholder="Type your message..." class="flex-grow p-2 border-none outline-none" />
+    <button onclick="sendToOllama()" class="bg-blue-600 text-white px-4">Send</button>
+  </div>
+</div>
+
+
+</body>
+</html>

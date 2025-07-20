@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Watch Video – Saarthi AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer src="video.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen">
+
+  <div class="max-w-5xl mx-auto py-10 px-4">
+    <h1 id="video-title" class="text-2xl font-bold mb-4 text-center">Loading...</h1>
+
+    <div class="aspect-w-16 aspect-h-9 mb-6">
+      <iframe
+        id="video-frame"
+        class="w-full h-96 rounded-lg border shadow"
+        src=""
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="flex justify-between mt-4 items-center">
+  <label class="flex items-center gap-2 text-sm">
+    <input type="checkbox" id="readCheckbox" onchange="markAsRead()" class="accent-green-600">
+     Mark as Read
+  </label>
+  <a href="subject.html" class="text-blue-600 underline">🔙 Back to Courses</a>
+</div>
+
+  </div>
+
+</body>
+</html>

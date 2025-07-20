@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Saarthi AI – Chapters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer src="subject.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+
+  <div class="max-w-6xl mx-auto px-4 py-10">
+    <h1 id="subject-title" class="text-3xl font-bold text-center mb-8">Loading...</h1>
+
+    <div id="chapter-buttons" class="flex flex-wrap gap-3 justify-center mb-6">
+      <!-- Chapter buttons inserted by JS -->
+    </div>
+
+    <div id="video-cards" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Video cards inserted by JS -->
+    </div>
+  </div>
+  <div id="recommendation-section" class="p-4 bg-gray-50 rounded-lg shadow-sm mt-6"></div>
+
+  <!-- 🔵 Floating Chatbot Button -->
+<div id="chatbot-button" class="fixed bottom-6 right-6 flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 z-50">
+  <span class="text-sm font-medium">Ask Saarthi</span>
+  <span class="text-xl">🤖</span>
+</div>
+
+
+<!-- 💬 Chatbot Popup -->
+<div id="chatbot-popup" class="hidden fixed bottom-20 right-6 bg-white w-96 rounded-lg shadow-xl border z-50 flex flex-col overflow-hidden">
+  <div class="bg-blue-600 text-white px-4 py-2 font-semibold flex justify-between items-center">
+    <span>AI Assistant</span>
+    <button onclick="toggleChatbot()" class="text-white">&times;</button>
+  </div>
+  <div id="chat-window" class="h-80 overflow-y-auto p-3 text-sm bg-gray-50"></div>
+  <div class="flex border-t">
+    <input id="user-input" type="text" placeholder="Type your message..." class="flex-grow p-2 border-none outline-none" />
+    <button onclick="sendToOllama()" class="bg-blue-600 text-white px-4">Send</button>
+  </div>
+</div>
+
+
+</body>
+</html>
